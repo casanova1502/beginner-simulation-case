@@ -24,28 +24,15 @@
             <button type="submit" class="submit-button">出品</button>
             @endif
         </div>
-            <div class="left-content">
-                <img src="{{ asset( $item->item_photo) }}" alt="商品画像" class="img-content" />
-                <h1>商品名</h1>
-                    <h2>商品名が入ります</h2>
-                <h2>支払い方法</h2>
-                    <p>選択してください</p>
-                <h2>配達先</h2>
-                <a href="/purchase/address/{{ $user->id }}">変更する</a>
-                <h3>郵便番号</h3>
-                <h3>住所と建物</h3>
-            <div class="right-content">
-                <table>
-                    <tr>
-                        <td>商品代金</td>
-                        <td>¥円</td>
-                    </tr>
-                    <tr>
-                        <td>支払い方法</td>
-                        <td>支払い方法</td>
-                    </tr>
-                </table>
-                <button type="submit" name="submit" value="">購入する</button>
+            <div class="main-content">
+                <h1>住所の変更</h1>
+                <label class="label">郵便番号</label>
+                <input type="text" name="post_code" class="mypage_profile_contents" value="{{ old('post_code') }}" />
+                <label class="label">住所</label>
+                <input type="text" name="address" class="mypage_profile_contents" value="{{ old('address')}}" />
+                <label class="label">建物名</label>
+                <input type="text" name="building" class="mypage_profile_contents" />
+                <button  type="submit" class="button-register">更新する</button>
             </div>
         </div>
     </div>
