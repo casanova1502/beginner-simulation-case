@@ -22,7 +22,7 @@
                 <button class="header-nav__button">ログアウト</button>
             </form>
             <a href="/mypage">マイページ</a>
-            <button type="submit" class="submit-button">出品</button>
+            <a href="/sell">出品</a>
             @endif
         </div>
         <div class="main-contents">

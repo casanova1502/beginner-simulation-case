@@ -17,14 +17,16 @@ use App\Http\Controllers\UserController;
 
 Route::get('/register', [UserController::class, 'create']);
 Route::post('/register', [UserController::class, 'registerStore']);
-Route::get('/login', [UserController::class, 'loginCreate']);
+Route::get('/login', [UserController::class, 'loginCreate'])->name('login');
 Route::post('/login', [UserController::class, 'loginStore']);
 Route::get('/item/{id}', [ItemController::class, 'show'])->name('item.show');
 Route::middleware('auth')->get('mypage/profile', [UserController::class, 'addProfilecreate'])->name('mypage_profile');
 Route::middleware('auth')->post('mypage/profile', [UserController::class, 'addProfilestore'])->name('mypage_profile_store');
 Route::middleware('auth')->get('/', [ItemController::class, 'index']);
+Route::middleware('auth')->get('/sell', [ItemController::class, 'sell']);
 Route::middleware('auth')->get('/purchase/{id}', [ItemController::class, 'buy'])->name('item.buy');
 Route::middleware('auth')->get('/purchase/address/{id}', [UserController::class, 'addressEditcreate']);
+Route::middleware('auth')->get('/mypage', [UserController::class, 'profileEditcreate']);
 Route::post('/logout', [UserController::class, 'logout']);
 
 // Route::get('/', [UserController::class, 'index'])->middleware(['auth', 'AddProfile'])->name('/');

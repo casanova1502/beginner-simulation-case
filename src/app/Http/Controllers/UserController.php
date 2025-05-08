@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Item;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +44,6 @@ class UserController extends Controller
         $user->save();
 
         return redirect('/');
-        // return redirect()->route('/');
     }
 
     public function loginCreate()
@@ -74,9 +74,22 @@ class UserController extends Controller
     public function addressEditcreate()
     {  
         $user = Auth::user();
- 
-        // $user = User::find($id);
 
         return view('purchase_address', compact('user'));
     }
+
+    public function profileEditcreate()
+    {
+        $items = Item::all();
+        $user = Auth::user();
+
+        return view('mypage',compact('items','user'));
+    }
+
+    // public function profileEditcreate()
+    // {
+    //     $user = Auth::user();
+
+    //     return view('mypage',compact('user'));
+    // }
 }

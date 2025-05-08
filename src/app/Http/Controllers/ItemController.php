@@ -15,6 +15,13 @@ class ItemController extends Controller
         return view('index', compact('items'));
     }
 
+    public function sell()
+    {
+        $user = Auth::user();
+        
+        return view('sell');
+    }
+
     public function show($id)
     {
         $item = Item::find($id);
