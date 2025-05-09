@@ -39,12 +39,23 @@
                     <p>{{ $item->category_id }}</p>
                 <h3>商品の状態</h3>
                     <p>{{ $item->condition_id }}</p>
-            <h2>コメント</h2>
-                <img src=" " alt="ユーザーフォト" class="image-user" />
-                <p>comment</p>
+            <form action="/item/{{ $item->id }}" method="post">
+            @csrf    
+                <h2>コメント</h2>
+                @foreach ($comments as $comment)
+                <img src="" alt="ユーザーフォト" class="image-user" />
+                <li>
+                @if($comment->user)
+                    {{ $comment->user->name }}: {{ $comment->description }}
+                @else
+                    匿名ユーザー: {{ $comment->description }}
+                @endif
+                </li>
+                @endforeach
                 <h3>商品へのコメントは作成中</h3>
-                <input type="text">
-                <button type="submit" class="right-content-comment">コメントを送信する</button>    
+                <textarea name="description" required></textarea>
+                <button type="submit" class="right-content-comment">コメントを送信する</button>
+            </form>  
         </div>
     </div>
 </body>

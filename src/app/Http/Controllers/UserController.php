@@ -57,7 +57,6 @@ class UserController extends Controller
 
         if (Auth::attempt($user)){
             
-            // return redirect('index');
             return redirect('/');
         }
 
@@ -85,11 +84,4 @@ class UserController extends Controller
 
         return view('mypage',compact('items','user'));
     }
-
-    // public function profileEditcreate()
-    // {
-    //     $user = Auth::user();
-
-    //     return view('mypage',compact('user'));
-    // }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -25,8 +27,9 @@ class ItemController extends Controller
     public function show($id)
     {
         $item = Item::find($id);
+        $comments = Comment::with('user')->where('item_id', $id)->get();
 
-        return view('item', compact('item'));
+        return view('item', compact('item','comments'));
     }
 
     public function buy($id)
