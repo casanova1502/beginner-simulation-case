@@ -29,8 +29,8 @@
                     <label class="label">商品画像</label>
                         <p>商品画像をここに挿入します</p>
                     <h2>商品の詳細</h2>
-                        <label class="label">カテゴリー</label>
-                            <p>ここにカテゴリーを選択式で選べるように表示します</p>
+                    <label class="label">カテゴリー</label>
+                        <p>ここにカテゴリーを選択式で選べるように表示します</p>
                     <label class="label">商品の状態</label>
                     <p>商品の状態を選べるようにします</p>
                     <h2>商品名と説明</h2>

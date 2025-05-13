@@ -27,9 +27,13 @@
             <div class="left-content">
                 <img src="{{ asset( $item->item_photo) }}" alt="商品画像" class="img-content" />
                 <h1>商品名</h1>
-                    <h2>商品名が入ります</h2>
+                    <h2>{{ $item->name }}</h2>
                 <h2>支払い方法</h2>
-                    <p>選択してください</p>
+                    <select name="payway" id="payway-select" onchange="updatePaywayName()">
+                        @foreach ($payways as $payway)
+                            <option value="{{ $payway->name }}">{{ $payway->name }}</option>
+                        @endforeach
+                    </select>
                 <h2>配達先</h2>
                 <a href="/purchase/address/{{ $user->id }}">変更する</a>
                 <h3>郵便番号</h3>
@@ -38,11 +42,11 @@
                 <table>
                     <tr>
                         <td>商品代金</td>
-                        <td>¥円</td>
+                        <td>¥{{ $item->price }}</td>
                     </tr>
                     <tr>
                         <td>支払い方法</td>
-                        <td>支払い方法</td>
+                        <td id="selected-payway">選択してください</td>
                     </tr>
                 </table>
                 <button type="submit" name="submit" value="">購入する</button>
@@ -50,3 +54,10 @@
         </div>
     </div>
 </body>
+
+<script>
+    function updatePaywayName() {
+        const selected = document.getElementById('payway-select').value;
+        document.getElementById('selected-payway').innerText = selected;
+    }
+</script>
