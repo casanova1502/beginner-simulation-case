@@ -25,14 +25,21 @@
             @endif
         </div>
             <div class="main-content">
-                <h1>商品の変更</h1>
-                    <label class="label">郵便番号</label>
-                        <input type="text" name="post_code"  value="" />
-                    <label class="label">住所</label>
-                        <input type="text" name="address"  value="" />
-                    <label class="label">建物名</label>
-                        <input type="text" name="building"  value="" />
-                <button  type="submit" class="button-update">更新する</button>
+                <form action="/purchase/address/{{ $item->id }}" method="post">
+                    @method('PATCH')
+                    @csrf
+                    <h1>配達先の変更</h1>
+                        <label class="label">郵便番号</label>
+                            <input type="text" name="post_code"  value="{{ $user->post_code }}" />
+                            <input type="hidden" name="id" value="{{ $user['id'] }}">
+                        <label class="label">住所</label>
+                            <input type="text" name="address"  value="{{ $user->address }}" />
+                            <input type="hidden" name="id" value="{{ $user['id'] }}">
+                        <label class="label">建物名</label>
+                            <input type="text" name="building"  value="{{ $user->building }}" />
+                            <input type="hidden" name="id" value="{{ $user['id'] }}">
+                    <button  type="submit" class="button-update">更新する</button>
+                </form>
             </div>
         </div>
     </div>

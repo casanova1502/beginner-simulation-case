@@ -31,7 +31,8 @@
                     <h1>商品名</h1>
                         <h2>{{ $item->name }}</h2>
                     <h2>支払い方法</h2>
-                        <select name="payway" id="payway-select" onchange="updatePaywayName()">
+                        <select name="payway" id="payway-select" >
+                        <!-- onchange="updatePaywayName()"> -->
                         @foreach ($payways as $payway)
                             <option value="{{ $payway->id }}">{{ $payway->name }}</option>
                         @endforeach
@@ -59,8 +60,25 @@
 </body>
 
 <script>
-    function updatePaywayName() {
-        const selected = document.getElementById('payway-select').value;
-        document.getElementById('selected-payway').innerText = selected;
-    }
+    const paywaySelect = document.getElementById('payway-select');
+    const selectedPayway = document.getElementById('selected-payway');
+
+    paywaySelect.addEventListener('change', () => {
+        const selectedOption = paywaySelect.options[paywaySelect.selectedIndex];
+        selectedPayway.textContent = selectedOption.text;
+    });
+    
+    // const targetPaywayselect = document.getElementById('payway-select');
+    // const selectedPayway = document.getElementById('selected-payway');
+    // targetPaywayselect.addEventListener('change', () => {
+    //     const optionPs = targetPaywayselect.options[targetPaywayselect.selectedIndex];
+    //     selectedPayway.textContent = targetPaywayselect.text;
+    //     // const optionPa = optionPs.getAttribute('name');
+    //     // english.textContent = optionEn;
+    // });
+    
+    // function updatePaywayName() {
+    //     const selected = document.getElementById('payway-select').value;
+    //     document.getElementById('selected-payway').innerText = selected;
+    // }
 </script>

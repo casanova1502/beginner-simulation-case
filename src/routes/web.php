@@ -30,5 +30,6 @@ Route::middleware('auth')->get('/sell', [ItemController::class, 'sell']);
 Route::middleware('auth')->get('/purchase/{id}', [ItemController::class, 'buy'])->name('item.buy');
 Route::middleware('auth')->post('/purchase/{id}', [OrderController::class, 'store'])->name('purchase.store');
 Route::middleware('auth')->get('/purchase/address/{id}', [UserController::class, 'addressEditcreate']);
+Route::middleware('auth')->patch('/purchase/address/{id}', [UserController::class, 'addressEditupdate']);
 Route::middleware('auth')->get('/mypage', [UserController::class, 'profileEditcreate']);
 Route::post('/logout', [UserController::class, 'logout']);

@@ -35,7 +35,7 @@ class ItemController extends Controller
 
     public function buy($id)
     {
-        $item = Item::find($id);
+        $item = Item::findOrFail($id);
         $user = Auth::user();
         $payways = PayWay::all();
         

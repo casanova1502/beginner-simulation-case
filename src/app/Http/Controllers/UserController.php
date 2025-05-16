@@ -70,11 +70,21 @@ class UserController extends Controller
         return redirect('/login');
     }
 
-    public function addressEditcreate()
+    public function addressEditcreate($id)
     {  
         $user = Auth::user();
+        $item = Item::findOrFail($id);
 
-        return view('purchase_address', compact('user'));
+        return view('purchase_address', compact('user', 'item'));
+    }
+
+    public function addressEditupdate(Request $request, $id)
+    {  
+    
+        $user = $request->only(['post_code', 'address', 'building']);
+        User::find($request->id)->update($user);
+
+        return view('purchase');
     }
 
     public function profileEditcreate()
