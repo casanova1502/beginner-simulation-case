@@ -40,7 +40,11 @@
                         </label>
                         @endforeach
                     <label class="label">商品の状態</label>
-                    <p>商品の状態を選べるようにします</p>
+                        <select name="condition">
+                        @foreach ($conditions as $condition)
+                            <option value="{{ $condition->id }}">{{ $condition->name }}</option>
+                        @endforeach
+                        </select>
                     <h2>商品名と説明</h2>
                         <label class="label">商品名</label>
                             <input type="text" name="name"  value="" />
