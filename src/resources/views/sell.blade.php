@@ -26,11 +26,19 @@
         </div>
             <div class="main-content">
                 <h1>商品の出品</h1>
-                    <label class="label">商品画像</label>
+                    <form action="/sell" method="post">
+                    @csrf
+                        <label class="label">商品画像</label>
                         <p>商品画像をここに挿入します</p>
+                        <button>画像を選択する</button>
                     <h2>商品の詳細</h2>
-                    <label class="label">カテゴリー</label>
-                        <p>ここにカテゴリーを選択式で選べるように表示します</p>
+                        <label class="label">カテゴリー</label>
+                        @foreach ($categories as $category)
+                        <label>
+                            <input type="checkbox" name="categories[]" value="{{ $category->id }}">
+                            {{ $category->name }}
+                        </label>
+                        @endforeach
                     <label class="label">商品の状態</label>
                     <p>商品の状態を選べるようにします</p>
                     <h2>商品名と説明</h2>
@@ -43,6 +51,7 @@
                         <label class="label">商品の詳細</label>
                             <input type="text" name="price" value="¥" />
                 <button  type="submit" class="button-selling">出品する</button>
+                </form>
             </div>
         </div>
     </div>

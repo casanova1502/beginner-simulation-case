@@ -32,7 +32,6 @@
                         <h2>{{ $item->name }}</h2>
                     <h2>支払い方法</h2>
                         <select name="payway" id="payway-select" >
-                        <!-- onchange="updatePaywayName()"> -->
                         @foreach ($payways as $payway)
                             <option value="{{ $payway->id }}">{{ $payway->name }}</option>
                         @endforeach

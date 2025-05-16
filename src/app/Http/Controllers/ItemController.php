@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\PayWay;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -21,6 +22,15 @@ class ItemController extends Controller
     public function sell()
     {
         $user = Auth::user();
+        $categories = Category::all();
+        
+        return view('sell', compact('user', 'categories'));
+    }
+
+    public function sellCreate(Request $request)
+    {
+        $user = Auth::user();
+
         
         return view('sell');
     }
