@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Item;
+use App\Models\PayWay;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,11 +81,16 @@ class UserController extends Controller
 
     public function addressEditupdate(Request $request, $id)
     {  
-    
-        $user = $request->only(['post_code', 'address', 'building']);
-        User::find($request->id)->update($user);
+        $user = Auth::user();
+        $user->post_code = $request->post_code;
+        $user->address = $request->address;
+        $user->building = $request->building;
+        $user->save();
 
-        return view('purchase');
+        $item = Item::findOrFail($id);
+        $payways = PayWay::all();
+
+        return view('purchase', compact('item', 'user', 'payways'));
     }
 
     public function profileEditcreate()

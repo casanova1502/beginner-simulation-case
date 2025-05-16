@@ -52,7 +52,7 @@
                 @endif
                 </li>
                 @endforeach
-                <h3>商品へのコメントは作成中</h3>
+                <h3>商品へのコメント</h3>
                 <textarea name="description" required></textarea>
                 <button type="submit" class="right-content-comment">コメントを送信する</button>
             </form>  

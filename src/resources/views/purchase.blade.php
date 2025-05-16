@@ -38,9 +38,9 @@
                         @endforeach
                         </select>
                     <h2>配達先</h2>
-                    <a href="/purchase/address/{{ $user->id }}">変更する</a>
-                    <h3>郵便番号</h3>
-                    <h3>住所と建物</h3>
+                    <a href="/purchase/address/{{ $item->id }}">変更する</a>
+                    <h3>{{ $user->post_code }}</h3>
+                    <h3>{{ $user->address }}{{ $user->building }}</h3>
                 <div class="right-content">
                     <table>
                         <tr>
