@@ -31,5 +31,5 @@
 ・Laravel 8.83.8
 ・MySQL 8.0.26
 ## URL
-・開発環境:http://localhost/products
+・開発環境:http://localhost/login
 ・phpMyAdmin:http://localhost:8080
